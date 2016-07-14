@@ -11,6 +11,7 @@
     "clean": "rimraf public/dist",
     "webpack": "NODE_ENV=production webpack --config frontend/config/production/webpack.config.js",
     "build": "npm run clean && npm run webpack",
+    "hypernova": "babel-node hypernova.js --presets es2015,react,stage-2",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/chimame/react_on_rails_template#readme",
   "devDependencies": {
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
@@ -37,6 +39,8 @@
   },
   "dependencies": {
     "glob": "^7.0.5",
+    "hypernova": "^1.0.0",
+    "hypernova-react-redux": "^1.2.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
