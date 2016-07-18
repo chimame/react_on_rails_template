@@ -38,6 +38,7 @@
     "webpack-manifest-plugin": "^1.0.1"
   },
   "dependencies": {
+    "chokidar": "^1.6.0",
     "glob": "^7.0.5",
     "hypernova": "^1.0.0",
     "hypernova-react-redux": "^1.2.0",
