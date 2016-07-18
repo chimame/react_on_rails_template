@@ -32,7 +32,7 @@ hypernova({
   devMode: true,
 
   getComponent(name) {
-  console.log(fileList)
+
     if (fileList.indexOf(name) > -1){
       return require(`${path}${name}`)
     }
