@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const glob = require("glob");
 
 module.exports = {
-  entry: glob.sync("./frontend/js/*.js"),
+  entry: glob.sync("./frontend/javascripts/*.js"),
   output: {
     path: path.join(__dirname, 'public/dist'),
     filename: '[name].js',  // このままならmain.jsが作成される

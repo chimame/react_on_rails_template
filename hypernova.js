@@ -1,7 +1,7 @@
 const hypernova = require('hypernova/server')
 const fs = require('fs')
 const chokidar = require('chokidar')
-const path = "./frontend/js/"
+const path = "./frontend/javascripts/"
 var fileList = []
 
 const makeFileList = () => {

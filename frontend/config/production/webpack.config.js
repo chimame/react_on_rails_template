@@ -4,7 +4,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const glob = require("glob");
 
 module.exports = {
-  entry: glob.sync("./frontend/js/*.js"),
+  entry: glob.sync("./frontend/javascripts/*.js"),
   output: {
     path: './public/dist',
     filename: '[name]-[hash].js'
