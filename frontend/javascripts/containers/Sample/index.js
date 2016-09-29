@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     const { data, actions } = this.props
     return (
-      <Counter {...data} onIncrement={actions.increment} onDecrement={actions.decrement} />
+      <Counter {...data.counter} onIncrement={actions.increment} onDecrement={actions.decrement} />
     )
   }
 }
