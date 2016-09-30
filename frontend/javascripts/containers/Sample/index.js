@@ -5,7 +5,7 @@ import * as Actions from '../../actions/Sample'
 // not use redux-actions
 //import {increment, decrement} from '../../actions/Sample'
 
-import Counter from '../../components/Sample'
+import Counter from '../../components/Counter'
 
 class App extends Component {
   constructor(props) {
