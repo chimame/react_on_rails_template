@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions'
 
-export const initialState = {count: 0}
+export const counterInitialState = {count: 0}
 
 const reducerMap = {
   INCREMENT_COUNTER(state, action) {
@@ -11,7 +11,7 @@ const reducerMap = {
   },
 }
 
-export default handleActions(reducerMap, initialState)
+export default handleActions(reducerMap, counterInitialState)
 
 /*
 // not use redux-actions
