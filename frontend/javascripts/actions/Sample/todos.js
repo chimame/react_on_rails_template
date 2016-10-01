@@ -7,10 +7,10 @@ export const toggle    = createAction(TOGGLE_TODO)
 
 /*
 // not use redux-actions
-export const increment = {
-  type: 'INCREMENT_COUNTER'
+export const add = {
+  type: 'ADD_TODO'
 }
-export const decrement = {
-  type: 'DECREMENT_COUNTER'
+export const toggle = {
+  type: 'TOGGLE_TODO'
 }
 */
