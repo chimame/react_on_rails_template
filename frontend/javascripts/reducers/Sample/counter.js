@@ -1,13 +1,14 @@
 import { handleActions } from 'redux-actions'
+import Counter from '../../models/couter'
 
-export const counterInitialState = {count: 0}
+export const counterInitialState = new Counter()
 
 const reducerMap = {
   INCREMENT_COUNTER(state, action) {
-    return {...state, count: state.count + 1}
+    return state.set('count', state.get('count') + 1)
   },
   DECREMENT_COUNTER(state, action) {
-    return {...state, count: state.count - 1}
+    return state.set('count', state.get('count') - 1)
   },
 }
 

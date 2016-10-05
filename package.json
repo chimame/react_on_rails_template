@@ -47,6 +47,7 @@
     "glob": "^7.0.5",
     "hypernova": "^1.0.0",
     "hypernova-react-redux": "^1.2.0",
+    "immutable": "^3.8.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
