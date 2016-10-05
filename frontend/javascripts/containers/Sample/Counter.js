@@ -15,7 +15,6 @@ class CounterContainer extends Component {
 
   render() {
     const { data, actions } = this.props
-console.log(data)
     return (
       <Counter count={data.get('count')} onIncrement={actions.increment} onDecrement={actions.decrement} />
     )
