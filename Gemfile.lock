@@ -55,6 +55,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
+    database_rewinder (0.6.4)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -205,6 +206,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  database_rewinder
   foreman
   hypernova
   jbuilder (~> 2.5)

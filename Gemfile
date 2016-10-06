@@ -39,6 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'database_rewinder'
 end
 
 group :development do
