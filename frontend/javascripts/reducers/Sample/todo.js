@@ -4,6 +4,9 @@ import Todo from '../../models/todo'
 export const todoInitialState = new Todo()
 
 export const todoReducerMap = {
+  GET_TODO(id, text, completed) {
+    return new Todo({id: id, text: text, completed: completed})
+  },
   ADD_TODO(state, action) {
     return new Todo({id: action.payload.id, text: action.payload.text, completed: false})
   },

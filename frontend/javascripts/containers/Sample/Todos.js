@@ -7,6 +7,7 @@ import * as Actions from '../../actions/Sample/todos'
 
 import TodoList from '../../components/TodoList'
 import AddTodo from '../../components/AddTodo'
+import {addTodo} from '../../utils/WebApi'
 
 class Todos extends Component {
   constructor(props) {
@@ -14,12 +15,17 @@ class Todos extends Component {
 //    this.state = {data: {}}
   }
 
+  componentDidMount() {
+    const { actions } = this.props
+    actions.get()
+  }
+
   render() {
     const { data, actions } = this.props
     return (
       <div>
         <TodoList todos={data} onTodoClick={actions.toggle} />
-        <AddTodo onRegist={actions.add} nextId={data.length === 0 ? 1 : Math.max.apply(null, data.map((o) => {return o.id})) + 1} />
+        <AddTodo onRegist={(text) => {actions.add(addTodo(text))}} />
       </div>
     )
   }

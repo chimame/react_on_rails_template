@@ -2,14 +2,14 @@ import React, { PropTypes, Component } from 'react'
 
 class AddTodo extends Component {
   render() {
-    const { onRegist, nextId } = this.props
+    const { onRegist } = this.props
     return (
       <form onSubmit={e => {
         e.preventDefault()
         if (!this.refs.input.value.trim()) {
           return
         }
-        onRegist({id: nextId, text: this.refs.input.value})
+        onRegist(this.refs.input.value)
         this.refs.input.value = ''
       }}>
         <input ref="input" />
@@ -43,7 +43,6 @@ const AddTodo = ({ onRegist, nextId }) => (
 
 AddTodo.propTypes = {
   onRegist: PropTypes.func.isRequired,
-  nextId: PropTypes.number.isRequired,
 }
 
 export default AddTodo
