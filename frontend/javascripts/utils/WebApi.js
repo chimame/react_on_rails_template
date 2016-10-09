@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-fetch'
-import $ from 'jquery'
 
-const csrfToken = $('meta[name="csrf-token"]').attr('content')
+const csrfToken = document.getElementsByName('csrf-token').item(0).content
 const params = {
   method: 'POST',
   credentials: 'same-origin',
