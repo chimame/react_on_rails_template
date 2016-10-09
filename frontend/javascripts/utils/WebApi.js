@@ -25,8 +25,7 @@ export const getTodos = () => {
 }
 
 export const addTodo = (text) => {
-  params["body"] = JSON.stringify({todo: {text: text}})
-  return fetch(`/todos`, params)
+  return fetch(`/todos`, {...params, ...{body: JSON.stringify({todo: {text: text}})}})
     .then(res => {
       if (res.status >= 400) {
         throw new Error("Bad response from server")
@@ -38,8 +37,7 @@ export const addTodo = (text) => {
 }
 
 export const toggle = (id) => {
-  params["method"] = 'PATCH'
-  return fetch(`/todos/${id}/toggle`, params)
+  return fetch(`/todos/${id}/toggle`, {...params, ...{method: 'PATCH'}})
     .then(res => {
       if (res.status >= 400) {
         throw new Error("Bad response from server")
