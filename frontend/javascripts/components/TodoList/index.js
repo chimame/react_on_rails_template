@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import Todo from '../Todo'
+import {toggle} from '../../utils/WebApi'
 
 const TodoList = ({ todos, onTodoClick }) => (
   <ul>
@@ -7,7 +8,7 @@ const TodoList = ({ todos, onTodoClick }) => (
       <Todo
         key={todo.id}
         todo={todo}
-        onClick={() => onTodoClick(todo.id)}
+        onClick={() => onTodoClick(toggle(todo.id))}
       />
     )}
   </ul>

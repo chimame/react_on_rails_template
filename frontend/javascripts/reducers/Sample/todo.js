@@ -11,7 +11,7 @@ export const todoReducerMap = {
     return new Todo({id: action.payload.id, text: action.payload.text, completed: false})
   },
   TOGGLE_TODO(state, action) {
-    if (state.id !== action.payload) {
+    if (state.id !== action.payload.id) {
       return state
     }
     return state.set('completed', !state.get('completed'))

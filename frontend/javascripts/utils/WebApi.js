@@ -13,7 +13,7 @@ const params = {
 }
 
 export const getTodos = () => {
-  return fetch(`http://localhost:5000/todos.json`)
+  return fetch(`/todos.json`)
     .then(res => {
       if (res.status >= 400) {
         throw new Error("Bad response from server")
@@ -26,7 +26,20 @@ export const getTodos = () => {
 
 export const addTodo = (text) => {
   params["body"] = JSON.stringify({todo: {text: text}})
-  return fetch(`http://localhost:5000/todos`, params)
+  return fetch(`/todos`, params)
+    .then(res => {
+      if (res.status >= 400) {
+        throw new Error("Bad response from server")
+      }
+      return res.json()
+    })
+    .then(payload => { return payload })
+    .catch(error => { return undefined })
+}
+
+export const toggle = (id) => {
+  params["method"] = 'PATCH'
+  return fetch(`/todos/${id}/toggle`, params)
     .then(res => {
       if (res.status >= 400) {
         throw new Error("Bad response from server")
