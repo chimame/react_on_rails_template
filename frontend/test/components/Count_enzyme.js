@@ -22,7 +22,7 @@ describe('Counter', () => {
     expect(decrementMock).not.toHaveBeenCalled()
   })
 
-  it('should be handle increment', () => {
+  it('should be handle decrement', () => {
     const incrementMock = jest.fn()
     const decrementMock = jest.fn()
     subject(incrementMock, decrementMock).find('#decrement').simulate('click')
