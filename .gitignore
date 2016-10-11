@@ -136,3 +136,4 @@ jspm_packages
 
 
 /public/dist/
+/frontend/__tests__/*/*.spec.js
