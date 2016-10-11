@@ -1,0 +1,19 @@
+exports[`Counter should be render Counter 1`] = `
+<div>
+  <p>
+    カウント: 
+    1
+    回
+  </p>
+  <button
+    id="increment"
+    onClick={[Function mockConstructor]}>
+    ++
+  </button>
+  <button
+    id="decrement"
+    onClick={[Function mockConstructor]}>
+    --
+  </button>
+</div>
+`;

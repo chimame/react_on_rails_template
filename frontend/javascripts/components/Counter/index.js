@@ -16,8 +16,8 @@ export default class Counter extends Component {
     return (
       <div>
         <p>カウント: {count}回</p>
-        <button onClick={onIncrement}>++</button>
-        <button onClick={onDecrement}>--</button>
+        <button id={"increment"} onClick={onIncrement}>++</button>
+        <button id={"decrement"} onClick={onDecrement}>--</button>
       </div>
     )
   }

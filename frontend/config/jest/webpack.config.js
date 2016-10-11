@@ -22,7 +22,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query:{
-          presets: ["es2015", "stage-2", "react"]
+          presets: ["es2015", "stage-2", "react"],
+          compact: false
         }
       },
       {
@@ -33,7 +34,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      global: {}
     })
   ],
   resolve: {
