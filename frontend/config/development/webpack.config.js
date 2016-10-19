@@ -13,9 +13,9 @@ module.exports = {
   module: {
     loaders: [
       {
-        loaders: ['react-hot', 'babel?cacheDirectory=true,presets[]=es2015,presets[]=stage-2,presets[]=react'],
+        test: /\.js$/,
         exclude: /node_modules/,
-        test: /\.js[x]?$/
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,

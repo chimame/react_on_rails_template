@@ -5,6 +5,7 @@ export default class Counter extends Component {
   componentDidMount() {
     //SSRではここは呼ばれない（クライアント側では呼ばれる）なので実質2回呼ばれる
     console.log('componentDidMount')
+    console.log(endpoint)
   }
 
   componentWillMount() {

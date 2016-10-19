@@ -1,6 +1,11 @@
 {
   "presets": ["es2015", "stage-2", "react"],
   "env": {
+    "development": {
+      "plugins": [
+        ["transform-define", "./frontend/config/development/application.config.js"]
+      ]
+    },
     "test": {
       "plugins": [
         [
@@ -9,7 +14,8 @@
             "config": "./frontend/config/jest/webpack.config.js",
             "verbose": false
           }
-        ]
+        ],
+        ["transform-define", "./frontend/config/jest/application.config.js"]
       ]
     }
   }
