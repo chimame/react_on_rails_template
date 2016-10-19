@@ -16,6 +16,14 @@ module.exports = {
         loaders: ['react-hot', 'babel?cacheDirectory=true,presets[]=es2015,presets[]=stage-2,presets[]=react'],
         exclude: /node_modules/,
         test: /\.js[x]?$/
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style',
+          'css?modules',
+          'postcss'
+        ]
       }
     ]
   },
@@ -24,7 +32,7 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
   resolve: {
-    extensions: ['', '.js', '.json']
+    extensions: ['', '.js', '.json', '.css']
   },
   devServer: {
     contentBase: '../public/dist',

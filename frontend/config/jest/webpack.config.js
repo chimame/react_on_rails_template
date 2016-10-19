@@ -1,19 +1,9 @@
 const path = require('path')
 const webpack = require('webpack')
-const glob = require("glob")
-
-const entrys = {}
-glob.sync("./frontend/test/*/*.js").forEach(
-  (file) => {
-    entrys[file.replace("./frontend/test", "").replace(".js", "")] = file
-  }
-)
 
 module.exports = {
-  entry: entrys,
   output: {
-    path: "./frontend/__tests__/",
-    filename: '[name].spec.js'
+    libraryTarget: 'commonjs2',
   },
   module: {
     loaders: [
@@ -21,34 +11,22 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query:{
-          presets: ["es2015", "stage-2", "react"],
-          compact: false
-        }
       },
       {
         test: /\.json$/,
         loader: 'json',
       },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style',
+          'css?modules',
+          'postcss'
+        ]
+      },
     ]
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      global: {}
-    })
-  ],
   resolve: {
-    extensions: ['', '.js', '.json']
-  },
-  devServer: {
-    contentBase: '../public/dist',
-    port: 4000
-  },
-  externals: {
-    'jsdom': 'window',
-    'react/lib/ReactContext': 'window',
-    'react/lib/ExecutionEnvironment': true,
-    'react/addons': true,
+    extensions: ['', '.js', '.json', '.css']
   },
 };

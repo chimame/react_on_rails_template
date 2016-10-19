@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import style from './style'
 
 export default class Counter extends Component {
   componentDidMount() {
@@ -16,8 +17,8 @@ export default class Counter extends Component {
     return (
       <div>
         <p>カウント: {count}回</p>
-        <button id={"increment"} onClick={onIncrement}>++</button>
-        <button id={"decrement"} onClick={onDecrement}>--</button>
+        <button className={style.large} id={"increment"} onClick={onIncrement}>++</button>
+        <button className={style.large} id={"decrement"} onClick={onDecrement}>--</button>
       </div>
     )
   }

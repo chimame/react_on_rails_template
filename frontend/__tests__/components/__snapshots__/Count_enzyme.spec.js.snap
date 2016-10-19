@@ -6,11 +6,13 @@ exports[`Counter should be render Counter 1`] = `
     回
   </p>
   <button
+    className="Lge3Po6uOYRTJ1BikVe3b"
     id="increment"
     onClick={[Function mockConstructor]}>
     ++
   </button>
   <button
+    className="Lge3Po6uOYRTJ1BikVe3b"
     id="decrement"
     onClick={[Function mockConstructor]}>
     --
