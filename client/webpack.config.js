@@ -2,18 +2,18 @@
   {"functions": "never", "arrays": "only-multiline", "objects":
 "only-multiline"} ] */
 
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require('webpack')
+const path = require('path')
 
-const devBuild = process.env.NODE_ENV !== 'production';
-const nodeEnv = devBuild ? 'development' : 'production';
+const devBuild = process.env.NODE_ENV !== 'production'
+const nodeEnv = devBuild ? 'development' : 'production'
 
 const config = {
   entry: [
     'es5-shim/es5-shim',
     'es5-shim/es5-sham',
     'babel-polyfill',
-    './app/bundles/HelloWorld/startup/registration',
+    './app/startup/registration',
   ],
 
   output: {
@@ -22,7 +22,7 @@ const config = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
     alias: {
       react: path.resolve('./node_modules/react'),
       'react-dom': path.resolve('./node_modules/react-dom'),
@@ -34,17 +34,28 @@ const config = {
         NODE_ENV: JSON.stringify(nodeEnv),
       },
     }),
+    new webpack.LoaderOptionsPlugin({
+      postcss: {}
+    })
   ],
   module: {
     loaders: [
       {
         test: require.resolve('react'),
-        loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
+        loader: 'imports-loader?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
       },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?modules',
+          'postcss-loader'
+        ]
       },
     ],
   },
