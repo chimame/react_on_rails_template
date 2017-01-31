@@ -1,3 +1,15 @@
 {
-  "presets": ["es2015", "stage-2", "react"]
+  "presets": ["es2015", "stage-2", "react"],
+  "env": {
+    "development": {
+      "plugins": [
+        ["transform-define", "./config/development/application.config.js"]
+      ]
+    },
+    "jest": {
+      "plugins": [
+        ["transform-define", "./config/jest/application.config.js"]
+      ]
+    }
+  }
 }

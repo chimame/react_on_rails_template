@@ -19,9 +19,9 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: [
-          'style',
-          'css?modules',
-          'postcss'
+          'style-loader',
+          'css-loader?modules',
+          'postcss-loader'
         ]
       },
     ]
@@ -29,4 +29,9 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.json', '.css']
   },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      postcss: {}
+    })
+  ],
 };

@@ -1,7 +1,7 @@
 import React from 'react'
 import {shallow} from 'enzyme'
 import { shallowToJson } from 'enzyme-to-json'
-import Counter from '../../javascripts/components/Counter/'
+import Counter from '../../app/bundles/Sample/components/Counter/'
 
 describe('Counter', () => {
   const subject = (incrementFn, decrementFn) => {

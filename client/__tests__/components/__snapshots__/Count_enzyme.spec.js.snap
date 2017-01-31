@@ -6,15 +6,15 @@ exports[`Counter should be render Counter 1`] = `
     回
   </p>
   <button
-    className="Lge3Po6uOYRTJ1BikVe3b"
+    className="large"
     id="increment"
-    onClick={[Function mockConstructor]}>
+    onClick={[Function]}>
     ++
   </button>
   <button
-    className="Lge3Po6uOYRTJ1BikVe3b"
+    className="large"
     id="decrement"
-    onClick={[Function mockConstructor]}>
+    onClick={[Function]}>
     --
   </button>
 </div>

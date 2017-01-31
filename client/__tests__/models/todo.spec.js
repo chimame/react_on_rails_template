@@ -1,4 +1,4 @@
-import Todo from '../../javascripts/models/todo'
+import Todo from '../../app/bundles/Sample/models/todo'
 
 describe('Todo', () => {
   describe('getStyle()', () => {
