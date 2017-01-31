@@ -137,3 +137,10 @@ jspm_packages
 
 /public/dist/
 /frontend/__tests__/*/*.spec.js
+
+# React on Rails
+npm-debug.log*
+node_modules
+
+# Generated js bundles
+/app/assets/webpack/*
