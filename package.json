@@ -8,7 +8,10 @@
   },
   "scripts": {
     "postinstall": "cd client && yarn install",
-    "rails-server": "echo 'visit http://localhost:3000/hello_world' && bin/foreman start -f Procfile.dev",
+    "start": "echo 'visit http://localhost:3000/sample' && bin/foreman s",
+    "build:test": "cd client && yarn run build:test",
+    "build:production": "cd client && yarn run build:production",
+    "build:development": "cd client && yarn run build:development",
     "test": "cd client && yarn test"
   }
 }

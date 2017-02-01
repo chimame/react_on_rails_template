@@ -1,7 +1,7 @@
 task :build_frontend do
   cd "frontend" do
-    sh "npm install"
-    sh "npm run build"
+    sh "yarn install"
+    sh "yarn run build:#{Rails.env}"
   end
 end
 
