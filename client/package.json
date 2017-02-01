@@ -7,9 +7,9 @@
     "npm": "4.1.1"
   },
   "scripts": {
-    "build:test": "webpack --config webpack.config.js",
-    "build:production": "NODE_ENV=production webpack --config webpack.config.js",
-    "build:development": "webpack -w --config webpack.config.js",
+    "build:test": "NODE_ENV=test webpack --config config/test/webpack.config.js",
+    "build:production": "NODE_ENV=production webpack --config config/production/webpack.config.js",
+    "build:development": "NODE_ENV=development webpack -w --config config/development/webpack.config.js",
     "test": "NODE_ENV=jest BABEL_DISABLE_CACHE=1 jest"
   },
   "cacheDirectories": [
@@ -51,7 +51,7 @@
     "jest": "^18.1.0",
     "postcss-loader": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",
-    "react-hot-loader": "^1.3.1",
+    "react-hot-loader": "next",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1"
   },

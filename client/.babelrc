@@ -3,7 +3,8 @@
   "env": {
     "development": {
       "plugins": [
-        ["transform-define", "./config/development/application.config.js"]
+        ["transform-define", "./config/development/application.config.js"],
+        ["react-hot-loader/babel"]
       ]
     },
     "jest": {

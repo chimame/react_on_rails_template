@@ -3,15 +3,25 @@ const webpack = require('webpack');
 const glob = require("glob");
 
 module.exports = {
-  entry: glob.sync("./frontend/javascripts/*.js"),
+  entry: [
+    'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
+    'es5-shim/es5-shim',
+    'es5-shim/es5-sham',
+    'babel-polyfill',
+    './app/startup/registration',
+  ],
   output: {
-    path: path.join(__dirname, 'public/dist'),
-    filename: '[name].js',  // このままならmain.jsが作成される
-    publicPath: 'http://localhost:4000/',
-    hot: true
+    //filename: '[name].js',  // このままならmain.jsが作成される
+    filename: 'webpack-bundle.js',
+    path: '../app/assets/webpack',
   },
   module: {
     loaders: [
+      {
+        test: require.resolve('react'),
+        loader: 'imports-loader?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -20,22 +30,26 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: [
-          'style',
-          'css?modules',
-          'postcss'
+          'style-loader',
+          'css-loader?modules',
+          'postcss-loader'
         ]
       }
     ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      postcss: {}
+    })
   ],
   resolve: {
-    extensions: ['', '.js', '.json', '.css']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      react: path.resolve('./node_modules/react'),
+      'react-dom': path.resolve('./node_modules/react-dom'),
+    },
   },
-  devServer: {
-    contentBase: '../public/dist',
-    port: 4000
-  },
+  devtool: 'inline-source-map',
 };

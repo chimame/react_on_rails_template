@@ -1,3 +1,2 @@
 web: bin/rails s
-webpac-dev: npm run dev
-hepernova: npm run hypernova
+client: sh -c 'rm app/assets/webpack/* || true && cd client && yarn run build:development'

@@ -1,13 +1,17 @@
 const webpack = require('webpack')
 const path = require('path')
-const ManifestPlugin = require('webpack-manifest-plugin');
 const glob = require("glob");
 
 module.exports = {
-  entry: glob.sync("./frontend/javascripts/*.js"),
+  entry: [
+    'es5-shim/es5-shim',
+    'es5-shim/es5-sham',
+    'babel-polyfill',
+    './app/startup/registration',
+  ],
   output: {
-    path: './public/dist',
-    filename: '[name]-[hash].js'
+    filename: 'webpack-bundle.js',
+    path: '../app/assets/webpack',
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
@@ -16,18 +20,25 @@ module.exports = {
         warnings: false,
       },
     }),
-    new ManifestPlugin()
   ],
   module: {
     loaders: [
       {
-        loader: 'babel',
+        test: require.resolve('react'),
+        loader: 'imports-loader?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
+      },
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
-        test: /\.js[x]?$/,
-        query: {
-          cacheDirectory: true,
-          presets: ['react', 'es2015',"stage-2"]
-        }
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        loaders: [
+          'style-loader',
+          'css-loader?modules',
+          'postcss-loader'
+        ]
       }/*他のローダが必要ならこんな感じに,
       {
         test: /\.scss$/,
