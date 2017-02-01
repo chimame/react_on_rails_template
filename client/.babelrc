@@ -11,6 +11,11 @@
       "plugins": [
         ["transform-define", "./config/jest/application.config.js"]
       ]
+    },
+    "production": {
+      "plugins": [
+        ["transform-define", "./config/production/application.config.js"]
+      ]
     }
   }
 }
