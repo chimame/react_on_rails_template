@@ -13,6 +13,14 @@ export default class Counter extends Component {
     console.log('componentWillMount')
   }
 
+  componentWillMount() {
+    this.removeCss = style._insertCss()
+  }
+
+  componentWillUnmount() {
+    this.removeCss()
+  }
+
   render() {
     const { count, onIncrement, onDecrement } = this.props
     return (

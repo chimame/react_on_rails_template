@@ -1,48 +1,21 @@
-import fetch from 'isomorphic-fetch'
+import request from 'superagent'
 
-const csrfToken = document.getElementsByName('csrf-token').item(0).content
-const params = {
-  method: 'POST',
-  credentials: 'same-origin',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'X-CSRF-Token': csrfToken
-  }
-}
+const getCsrfToken = () => document.getElementsByName('csrf-token').item(0).content
 
 export const getTodos = () => {
-  return fetch(`/todos.json`)
-    .then(res => {
-      if (res.status >= 400) {
-        throw new Error("Bad response from server")
-      }
-      return res.json()
-    })
-    .then(payload => { return payload })
-    .catch(error => { return undefined })
+  return request.get(`/todos.json`)
+    .then(res => res.body)
 }
 
 export const addTodo = (text) => {
-  return fetch(`/todos`, {...params, ...{body: JSON.stringify({todo: {text: text}})}})
-    .then(res => {
-      if (res.status >= 400) {
-        throw new Error("Bad response from server")
-      }
-      return res.json()
-    })
-    .then(payload => { return payload })
-    .catch(error => { return undefined })
+  return request.post(`/todos`)
+    .set("X-CSRF-Token", getCsrfToken())
+    .send({todo: {text: text}})
+    .then(res => res.body)
 }
 
 export const toggle = (id) => {
-  return fetch(`/todos/${id}/toggle`, {...params, ...{method: 'PATCH'}})
-    .then(res => {
-      if (res.status >= 400) {
-        throw new Error("Bad response from server")
-      }
-      return res.json()
-    })
-    .then(payload => { return payload })
-    .catch(error => { return undefined })
+  return request.patch(`/todos/${id}/toggle`)
+    .set("X-CSRF-Token", getCsrfToken())
+    .then(res => res.body)
 }
