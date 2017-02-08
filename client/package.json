@@ -7,9 +7,12 @@
     "npm": "4.1.1"
   },
   "scripts": {
-    "build:test": "NODE_ENV=test webpack --config config/test/webpack.config.js",
-    "build:production": "NODE_ENV=production webpack --config config/production/webpack.config.js",
-    "build:development": "NODE_ENV=development webpack -w --config config/development/webpack.config.js",
+    "dev": "NODE_ENV=development webpack-dev-server --config config/development/webpack.config.js --progress --colors --inline --hot",
+    "build:server:test": "NODE_ENV=test webpack --config config/test/webpack.server.config.js",
+    "build:client:test": "NODE_ENV=test webpack --config config/test/webpack.config.js",
+    "build:server:production": "NODE_ENV=production webpack --config config/production/webpack.server.config.js",
+    "build:client:production": "NODE_ENV=production webpack --config config/production/webpack.config.js",
+    "build:server:development": "NODE_ENV=development webpack -w --config config/development/webpack.server.config.js",
     "test": "NODE_ENV=jest BABEL_DISABLE_CACHE=1 jest"
   },
   "cacheDirectories": [
@@ -53,7 +56,8 @@
     "postcss-loader": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "next",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   },
   "jest": {
     "moduleNameMapper": {

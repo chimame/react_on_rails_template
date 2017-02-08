@@ -3,10 +3,17 @@ const webpack = require('webpack');
 const glob = require("glob");
 
 module.exports = {
-  entry: glob.sync("./app/startup/*.js"),
+  entry: [
+    'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
+    'es5-shim/es5-shim',
+    'es5-shim/es5-sham',
+    'babel-polyfill',
+    './app/startup/registration',
+  ],
   output: {
-    filename: '[name].js',  // このままならmain.jsが作成される
-    publicPath: 'http://localhost:4000/'
+    filename: 'webpack-bundle.js',
+    path: '../app/assets/webpack',
   },
   module: {
     loaders: [
@@ -44,8 +51,4 @@ module.exports = {
     },
   },
   devtool: 'inline-source-map',
-  devServer: {
-    contentBase: '../public/dist',
-    port: 4000
-  }
 };

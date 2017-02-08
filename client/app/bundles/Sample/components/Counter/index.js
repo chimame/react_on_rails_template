@@ -6,15 +6,12 @@ export default class Counter extends Component {
     //SSRではここは呼ばれない（クライアント側では呼ばれる）なので実質2回呼ばれる
     console.log('componentDidMount')
     console.log(endpoint)
+    this.removeCss = style._insertCss()
   }
 
   componentWillMount() {
     //SSRでもここは呼ばれる
     console.log('componentWillMount')
-  }
-
-  componentWillMount() {
-    this.removeCss = style._insertCss()
   }
 
   componentWillUnmount() {

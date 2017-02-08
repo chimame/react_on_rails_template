@@ -1,4 +1,5 @@
+<%= javascript_include_tag assets_path("main.js") %>
 <%# client side rendering %>
-<%= react_component("SampleApp", prerender: false) %>
+<%= react_component("SampleApp") %>
 <%# server side rendering %>
 <%= react_component("SampleApp", prerender: true) %>
