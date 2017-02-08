@@ -6,7 +6,7 @@ const glob = require("glob")
 module.exports = {
   entry: glob.sync("./app/startup/*.js"),
   output: {
-    path: './public/dist',
+    path: '../public/dist',
     filename: '[name]-[hash].js'
   },
   plugins: [

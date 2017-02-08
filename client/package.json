@@ -7,12 +7,16 @@
     "npm": "4.1.1"
   },
   "scripts": {
+    "clean": "rimraf ../public/dist && rimraf ../app/assets/webpack",
     "dev": "NODE_ENV=development webpack-dev-server --config config/development/webpack.config.js --progress --colors --inline --hot",
-    "build:server:test": "NODE_ENV=test webpack --config config/test/webpack.server.config.js",
-    "build:client:test": "NODE_ENV=test webpack --config config/test/webpack.config.js",
-    "build:server:production": "NODE_ENV=production webpack --config config/production/webpack.server.config.js",
-    "build:client:production": "NODE_ENV=production webpack --config config/production/webpack.config.js",
-    "build:server:development": "NODE_ENV=development webpack -w --config config/development/webpack.server.config.js",
+    "webpack:server:test": "NODE_ENV=test webpack --config config/test/webpack.server.config.js",
+    "webpack:client:test": "NODE_ENV=test webpack --config config/test/webpack.config.js",
+    "webpack:server:production": "NODE_ENV=production webpack --config config/production/webpack.server.config.js",
+    "webpack:client:production": "NODE_ENV=production webpack --config config/production/webpack.config.js",
+    "webpack:server:development": "NODE_ENV=development webpack -w --config config/development/webpack.server.config.js",
+    "build:test": "yarn run clean && yarn run webpack:server:test && yarn run webpack:client:test",
+    "build:production": "yarn run clean && yarn run webpack:server:production && yarn run webpack:client:production",
+    "build:development": "yarn run clean && yarn run webpack:server:development",
     "test": "NODE_ENV=jest BABEL_DISABLE_CACHE=1 jest"
   },
   "cacheDirectories": [
@@ -56,9 +60,11 @@
     "postcss-loader": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "next",
+    "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "webpack-dev-server": "^2.3.0",
+    "webpack-manifest-plugin": "^1.1.0"
   },
   "jest": {
     "moduleNameMapper": {

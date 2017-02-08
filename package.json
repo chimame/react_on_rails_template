@@ -9,9 +9,9 @@
   "scripts": {
     "postinstall": "cd client && yarn install",
     "start": "echo 'visit http://localhost:3000/sample' && bin/foreman s",
-    "build:test": "cd client && yarn run build:server:test && yarn run build:client:test",
-    "build:production": "cd client && yarn run build:server:production && yarn run build:client:production",
-    "build:development": "cd client && yarn run build:server:development",
+    "build:test": "cd client && yarn run build:test",
+    "build:production": "cd client && yarn run build:production",
+    "build:development": "cd client && yarn run build:development",
     "dev": "cd client && yarn run dev",
     "test": "cd client && yarn test"
   }

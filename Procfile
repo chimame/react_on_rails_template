@@ -1,3 +1,3 @@
 web: bin/rails s
-js-build: sh -c 'rm app/assets/webpack/* || true && cd client && yarn run build:server:development'
-webpac-dev: npm run dev
+js-build: yarn run build:development
+webpac-dev: yarn run dev
