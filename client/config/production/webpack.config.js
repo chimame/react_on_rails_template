@@ -28,7 +28,7 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: [
-          'isomorphic-style-loader',
+          'style-loader',
           'css-loader?modules',
           'postcss-loader'
         ]
