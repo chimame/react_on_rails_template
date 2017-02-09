@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Provider, connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../actions/Sample/counter'
+import { Link } from 'react-router'
 // not use redux-actions
 //import {increment, decrement} from '../../actions/Sample/counter'
 
@@ -16,7 +17,10 @@ class CounterContainer extends Component {
   render() {
     const { data, actions } = this.props
     return (
-      <Counter count={data.get('count')} onIncrement={actions.increment} onDecrement={actions.decrement} />
+      <div>
+        <Counter count={data.get('count')} onIncrement={actions.increment} onDecrement={actions.decrement} />
+        <Link to='/sample/todo'>todo</Link>
+      </div>
     )
   }
 }

@@ -3,17 +3,13 @@ const webpack = require('webpack');
 const glob = require("glob");
 
 module.exports = {
-  entry: glob.sync("./app/startup/*.js"),
+  entry: glob.sync("./app/startup/client.js"),
   output: {
     filename: '[name].js',  // このままならmain.jsが作成される
     publicPath: 'http://localhost:4000/'
   },
   module: {
     loaders: [
-      {
-        test: require.resolve('react'),
-        loader: 'imports-loader?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
-      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -38,10 +34,6 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
-    alias: {
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
-    },
   },
   devtool: 'inline-source-map',
   devServer: {

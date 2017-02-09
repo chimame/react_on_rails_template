@@ -1,4 +1,16 @@
 <%= javascript_include_tag assets_path("main.js") %>
+
+<%=
+redux_store('configureStore', 
+  {
+    props: {
+      counter: {
+        count: 1
+      },
+    },
+  }
+)
+%>
 <%# client side rendering %>
 <%= react_component("SampleApp") %>
 <%# server side rendering %>

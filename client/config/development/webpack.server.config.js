@@ -9,7 +9,7 @@ module.exports = {
     'es5-shim/es5-shim',
     'es5-shim/es5-sham',
     'babel-polyfill',
-    './app/startup/registration',
+    './app/startup/server',
   ],
   output: {
     filename: 'webpack-bundle.js',
